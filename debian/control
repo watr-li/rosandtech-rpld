@@ -1,0 +1,22 @@
+Source: rpld
+Section: net
+Priority: optional
+Maintainer: Zafi Ramarosandratana <zramaro@rosand-tech.com>
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 7), cdbs, flex, bison, iproute-dev
+Homepage: http://wwww.rosand-tech.com
+
+Package: rpld
+Architecture: any
+Depends: ${misc:Depends}
+Description: Router Protocol for Low-Power and Lossy Network (RPL) Daemon
+ Low-Power and Lossy Networks (LLNs) are class of network in which both
+ routers and their interconnect are constrained. RPL provides a
+ mechanism whereby multipoint-to-point traffic from devices inside
+ the LLN towards a central control point as well as point-to-multipoint
+ traffic from the central point to the devices inside the LLNs
+ are supported.
+ .
+ On Linux this program is called rpld, which stands for RPL Daemon.
+ This daemon acts as the central control point of the protocol.
+

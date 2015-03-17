@@ -1,0 +1,97 @@
+.\"
+.\" rpld - Routing Protocol for Low-Power and Lossy Networks Daemon
+.\" Copyright (C) 2012 ROSAND Technologies
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.\"
+.\" $Id: $
+.\"
+.Dd DATE July 09, 2012
+.Os
+.Dt RPLD 1
+.Sh NAME
+.Nm rpld
+.Nd routing protocol for low-power and lossy networks daemon
+.Sh SYNOPSIS
+.Nm
+.Fl i Ar ifname
+.Op Fl p Ar prefix
+.Op Fl d Ar dag-id
+.Op Fl r Ar rank
+.Op Fl "h | ?"
+.Op Fl v
+.Sh DESCRIPTION
+.Nm rpld
+is the routing protocol for low-power and lossy networks daemon.
+.Pp
+Low-Power and Lossy Networks (LLNs) are a class of network in which the
+routers and their interconnect are constrained.
+.Pp
+.Nm RPL
+is a routing protocol which provides a mechanism whereby multipoint-to-point
+traffic from devices inside the LLN towards a central control point as well
+as point-to-multipoint traffic from the central control point to the devices
+inside the LLNs are supported.
+.Pp
+.Nm rpld
+acts as the Linux central control point.
+.Sh OPTIONS
+The following options can be specified to control the different operation modes
+of
+.Nm rpld .
+.Bl -tag -offset indent -width indent
+.It Fl i No ifname, Fl Fl interface No ifname
+.Fl i
+is the only option that is mandatory. It specifies the network interface
+to be used by
+.Nm rpld .
+.Nm ifname
+is the same name as for the
+.Nm ifconfig
+command. 
+.It Fl p No prefix, Fl Fl prefix No prefix
+Announce to the LLN the prefix specified by the argument. Prefix is used by
+each device as the network part of its IPv6 global address.
+.Pp
+If this option is missing, the first IPv6 global address of the interface will be
+used by
+.Nm rpld
+as prefix.
+.It Fl d No dag_id, Fl Fl dagid No dag_id
+It is the DAG ID used by the RPL Instance.
+.It Fl r No rank_number, Fl Fl rank No rank_number
+It is the rank that
+.Nm rpld
+will announce. If this option is missing,
+.Nm rpld
+is a DODAG root.
+.It Fl v, Fl Fl verbose
+Enable the verbose mode. This option can be used many times to get more output logs.
+.It Fl h, ?, Fl Fl help
+Display the bult-in help.
+.El
+.Sh EXAMPLES
+Start
+.Nm rpld
+as DODAG root on the interface eth0 with DAG ID 1110:0011::1010:10. Use the first IPv6
+global address of the interface as prefix.
+.Dl "rpld -i eth0 -d 1110:0011::1010:10"
+.Sh AUTHORS
+.Nm rpld
+was written by Zafi Ramarosandratana <zramaro@rosand-tech.com>
+.Sh BUGS
+Please report bugs or other suggestions via
+.Dl "http://www.rosand-tech.com/contact.html"
