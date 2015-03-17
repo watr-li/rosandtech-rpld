@@ -123,7 +123,7 @@ main(int argc, char *argv[])
   /*
    * process command line arguments
    */
-  while ((ch = getopt_long(argc,argv,"?hd:i:p:vD", longopts, 0)) != -1) {
+  while ((ch = getopt_long(argc,argv,"?hd:i:p:vD", longopts, 0)) != 0xff ) {
 
     switch (ch) {
     case 'i':   /* interface name */

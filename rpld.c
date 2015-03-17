@@ -344,7 +344,7 @@ br_init(void)
     exit(errno);
   }
   if(rtnl_dump_filter(rth, (rtnl_filter_t) kernel_route_get,
-      stderr, NULL, NULL) < 0) {
+      stderr /*, NULL, NULL*/) < 0) {
     fprintf(stderr, "Flush terminated\n");
     free(rth);
     exit(errno);

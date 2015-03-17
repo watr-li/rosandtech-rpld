@@ -249,7 +249,7 @@ scan_net_devices(int verbose)
   }
 
   if (rtnl_dump_filter(nl_handle, (rtnl_filter_t) add_linkinfo,
-      (void *)&verbose, NULL, NULL) < 0) {
+      (void *)&verbose/*, NULL, NULL*/) < 0) {
     fprintf(stderr, "Dump terminated\n");
     free(nl_handle);
     return -1;
@@ -263,7 +263,7 @@ scan_net_devices(int verbose)
   }
 
   if (rtnl_dump_filter(nl_handle, (rtnl_filter_t) add_ipinfo,
-      NULL, NULL, NULL) < 0) {
+      NULL/*, NULL, NULL*/) < 0) {
     fprintf(stderr, "Dump terminated\n");
     free(nl_handle);
     return -1;
