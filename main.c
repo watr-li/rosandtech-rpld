@@ -68,7 +68,7 @@ main(int argc, char *argv[])
 {
   int len;
   int i;
-  char ch;
+  unsigned char ch;
   char *e;
   struct interface *iface;
   struct netdrv *netdrv;
